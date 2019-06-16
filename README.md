@@ -19,3 +19,5 @@
 
 * Android Studio 2.0 汉化包 
 > http://www.android-studio.org/index.php/chinese/89-cn/183-androidstudio-2-0-cn
+
+!['基础常用'](https://github.com/Yinengmr/flutter_app/blob/master/lib/Screenshot_1560667740.png)

@@ -42,25 +42,37 @@ class MyApp extends StatelessWidget {
 //            ),
 //          ),
           child:Container(
-            child:new Text(
-              'Hello                                        Danny',
+          //  child:new Text(
+          //    'Hello 1                                       Danny',
 
-              style: TextStyle(
-                  fontSize: 40.0,
+          //    style: TextStyle(
+          //        fontSize: 40.0,
 
-                  color: Color.fromARGB(255, 255, 250, 150),
-              ),
+          //        color: Color.fromARGB(255, 255, 250, 150),
+          //    ),
+          //  ),
+          // //  alignment: Alignment.bottomCenter,  // 对齐
+          //  alignment: Alignment.topLeft,  // 对齐
+
+            child:new Image.network(
+              'http://pic37.nipic.com/20140113/8800276_184927469000_2.png',
+              scale:1.0,
+              // 图片混合模式（colorBlendMode）和color属性配合使用，能让图片改变颜色
+              color: Colors.greenAccent,
+              colorBlendMode: BlendMode.darken,
+              repeat: ImageRepeat.repeat,
             ),
 
-//            alignment: Alignment.bottomCenter,  // 对齐
-            alignment: Alignment.center,  // 对齐
-            width:500.0,
+//            
+            // width:500.0,
             height:400.0,
-//            color:Colors.lightBlue,  //  当 BoxDecoration设置有color时，外面不能进行 color设置
+            //  当 BoxDecoration设置有color时，外面不能进行 color设置
+//            color:Colors.lightBlue,  
 //            padding:const EdgeInsets.all(10.0),
-            padding:EdgeInsets.fromLTRB(30,10,10,10),
-//            margin: const EdgeInsets.all(10.0),
-              margin:EdgeInsets.fromLTRB(10,0,10,10),
+            padding:EdgeInsets.fromLTRB(10,10,10,10),
+           margin: const EdgeInsets.all(10.0),
+            // margin:EdgeInsets.fromLTRB(30,10,30,10),
+              // 背景色 边框
               decoration:new BoxDecoration(
                 gradient:const LinearGradient(
                     colors:[Colors.lightBlue,Colors.greenAccent,Colors.purple]

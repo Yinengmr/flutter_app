@@ -25,8 +25,8 @@ class _HomePageState extends State<HomePage> {
     return Container(
       child: Scaffold(
         appBar: AppBar(title: Text('美好人间'),),
-        body:Container(
-            // child: AppBar(title: Text('美好人间'),),
+        body:SingleChildScrollView(
+          child: Container(
             child:Column(
               children: <Widget>[
                 TextField(
@@ -58,6 +58,7 @@ class _HomePageState extends State<HomePage> {
                 )
               ],
             )
+          ),
         )
       )
     );
@@ -79,11 +80,11 @@ class _HomePageState extends State<HomePage> {
 
   }
 
-  Future getHttp(String TypeText)async{
+  Future getHttp(String text)async{
     try{
       Response response;
       var data = {
-        'name':TypeText
+        'name':text
          
       };
       response = await Dio().get("https://www.easy-mock.com/mock/5c60131a4bed3a6342711498/baixing/dabaojian",

@@ -72,9 +72,10 @@ class _HomePageState extends State<HomePage> {
       );
     }else{
         getHttp(textController.text.toString()).then((val){
-         setState(() {
-           showText=val['data']['name'].toString();
-         });
+          print(val.toString());
+          setState(() {
+            showText=val['data']['name'].toString();
+          });
         });
     }
 
@@ -87,7 +88,7 @@ class _HomePageState extends State<HomePage> {
         'name':text
          
       };
-      response = await Dio().get("https://www.easy-mock.com/mock/5c60131a4bed3a6342711498/baixing/dabaojian",
+      response = await Dio().get("http://223.255.255.134:3000/tt",
         queryParameters: data
       );
       return response.data;

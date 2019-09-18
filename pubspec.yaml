@@ -28,7 +28,6 @@ dependencies:
 
   # 开发环境
 dev_dependencies:
-  dio: ^2.1.0
   flutter_test:
     sdk: flutter
 

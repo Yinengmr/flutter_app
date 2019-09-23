@@ -5,6 +5,8 @@ import './car_page.dart';
 import './category_page.dart';
 import './home_page.dart';
 import './member_page.dart';
+
+import 'package:flutter_screenutil/flutter_screenutil.dart'; // 屏幕适配
 // class IndexPage extends StatelessWidget {
 //   @override
   // Widget build(BuildContext content) {
@@ -59,6 +61,7 @@ import './member_page.dart';
     }
     @override
     Widget build(BuildContext context) {
+      ScreenUtil.instance = ScreenUtil(width:750,height:1334)..init(context); // 设置屏幕尺寸
       return Scaffold(
         backgroundColor: Color.fromRGBO(244, 244, 245, 1.0),
         bottomNavigationBar: BottomNavigationBar(

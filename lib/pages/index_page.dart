@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart'; // 屏幕适配
 
 import './car_page.dart';
 import './category_page.dart';
 import './home_page.dart';
 import './member_page.dart';
 
-import 'package:flutter_screenutil/flutter_screenutil.dart'; // 屏幕适配
+
 // class IndexPage extends StatelessWidget {
 //   @override
   // Widget build(BuildContext content) {

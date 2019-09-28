@@ -57,7 +57,12 @@ class _HomePageState extends State<HomePage> {
             
             
           }else{
-            return Center(child: Text('加载中...'),);
+            return Center(
+              child: Container(
+                // 加载动画
+                child: CircularProgressIndicator(),
+              ),
+            );
           }
         },
       )

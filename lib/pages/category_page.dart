@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter_app/config/httpHeader.dart';
-
+import 'package:fluttertoast/fluttertoast.dart';
 import '../config/httpHeader.dart';
 
 class CategoryPage extends StatefulWidget {
@@ -11,31 +11,45 @@ class CategoryPage extends StatefulWidget {
 
 class _CategoryPageState extends State<CategoryPage> {
   String showText = '还没有请求数据';
+  bool _loading = false;
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: Scaffold(
-        appBar: AppBar(title: Text('请求数据'),),
-        body:SingleChildScrollView(
-          child: Column(
-            children:<Widget>[
-              RaisedButton(
-                onPressed: _jike,
-                child: Text('请求数据'),
-              ),
-              Text(showText)
-            ]
-          ),
+    if (_loading) {
+      return Center(
+        child: Container(
+          child:CircularProgressIndicator(),
+          // Text('显示加载动画'),
         )
-      ),
-    );
+      );
+    }else{
+      return Container(
+        child: Scaffold(
+          appBar: AppBar(title: Text('请求数据'),),
+          body:SingleChildScrollView(
+            child: Column(
+              children:<Widget>[
+                RaisedButton(
+                  onPressed: _jike,
+                  child: Text('请求数据'),
+                ),
+                Text(showText)
+              ]
+            ),
+          )
+        ),
+      );
+    }
   }
   void _jike(){
     print('开始请求数据');
+    setState(() {
+      _loading = !_loading;
+    });
     getHttp().then((val){
       setState(() {
         showText=val['data'].toString();
       });
+      _onRefresh();
     });
   }
 
@@ -50,5 +64,21 @@ class _CategoryPageState extends State<CategoryPage> {
     }catch(e){
       print(e);
     }
+  }
+  Future<Null> _onRefresh() async {
+    await Future.delayed(Duration(seconds: 0), () {
+      setState(() {
+        _loading = !_loading;
+        Fluttertoast.showToast(
+          msg: "加载完成！",
+          toastLength: Toast.LENGTH_SHORT,
+          gravity: ToastGravity.CENTER,
+          timeInSecForIos: 1,
+          backgroundColor: Colors.red,
+          textColor: Colors.white,
+          fontSize: 16.0
+        );
+      });
+    });
   }
 }

@@ -17,7 +17,11 @@ class _CategoryPageState extends State<CategoryPage> {
     if (_loading) {
       return Center(
         child: Container(
-          child:CircularProgressIndicator(),
+          child:CircularProgressIndicator(
+            // strokeWidth: 4.0, // 圆环宽度
+            // backgroundColor: Color(0xffff0000),  // 圆环背景颜色
+            // valueColor: new AlwaysStoppedAnimation<Color>(Colors.indigo),  // 圆环颜色
+          ),
           // Text('显示加载动画'),
         )
       );
@@ -66,7 +70,7 @@ class _CategoryPageState extends State<CategoryPage> {
     }
   }
   Future<Null> _onRefresh() async {
-    await Future.delayed(Duration(seconds: 0), () {
+    await Future.delayed(Duration(seconds: 1), () {
       setState(() {
         _loading = !_loading;
         Fluttertoast.showToast(

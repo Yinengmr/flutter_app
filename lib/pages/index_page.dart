@@ -45,7 +45,7 @@ import './member_page.dart';
       )
     ];
 
-    final List tabBoies = [
+    final List<Widget> tabBoies = [
       HomePage(),
       CategoryPage(),
       CarPage(),
@@ -78,7 +78,10 @@ import './member_page.dart';
          
         ),
         // appBar: AppBar(title: Text('哈哈')),
-        body:currentPage
+        body: IndexedStack(
+          index:currentIndex,
+          children: tabBoies,
+        )
       );
     }
   }

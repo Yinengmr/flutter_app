@@ -63,7 +63,7 @@ class _CategoryPageState extends State<CategoryPage> {
       Dio dio = new Dio();
       dio.options.headers = httpHeader;
       response = await dio.get("https://time.geekbang.org/serv/v1/column/newAll");
-      print(response.data);
+      // print(response.data);
       return response.data;
     }catch(e){
       print(e);
